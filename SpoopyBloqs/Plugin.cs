@@ -8,55 +8,24 @@ namespace SpoopyBloqs
 {
     public class Plugin : IBeatSaberPlugin
     {
-        internal static Ref<PluginConfig> config;
-        internal static IConfigProvider configProvider;
 
-        public void Init(IPALogger logger, [Config.Prefer("json")] IConfigProvider cfgProvider)
+        public void Init(IPALogger logger)
         {
-            Logger.log = logger;
-            configProvider = cfgProvider;
-
-            config = cfgProvider.MakeLink<PluginConfig>((p, v) =>
-            {
-                if (v.Value == null || v.Value.RegenerateConfig)
-                    p.Store(v.Value = new PluginConfig() { RegenerateConfig = false });
-                config = v;
-            });
+            Logger.logger = logger;
         }
 
-        public void OnApplicationStart()
-        {
-            Logger.log.Debug("OnApplicationStart");
-        }
+        public void OnApplicationStart() { }
 
-        public void OnApplicationQuit()
-        {
-            Logger.log.Debug("OnApplicationQuit");
-        }
+        public void OnApplicationQuit() { }
 
-        public void OnFixedUpdate()
-        {
+        public void OnFixedUpdate() { }
 
-        }
+        public void OnUpdate() { }
 
-        public void OnUpdate()
-        {
+        public void OnActiveSceneChanged(Scene prevScene, Scene nextScene) { }
 
-        }
+        public void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode) { }
 
-        public void OnActiveSceneChanged(Scene prevScene, Scene nextScene)
-        {
-
-        }
-
-        public void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode)
-        {
-
-        }
-
-        public void OnSceneUnloaded(Scene scene)
-        {
-
-        }
+        public void OnSceneUnloaded(Scene scene) { }
     }
 }

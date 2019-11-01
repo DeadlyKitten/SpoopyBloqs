@@ -6,9 +6,9 @@ namespace SpoopyBloqs
     {
         public static void CreateUI()
         {
-            var darthMaulToggle = GameplaySettingsUI.CreateToggleOption(GameplaySettingsPanels.ModifiersRight, "Spoopy Bloqs", "Missed a bloq? No worries, you can try again!", null, 0);
-            darthMaulToggle.GetValue = Plugin.IsEnabled;
-            darthMaulToggle.OnToggle += (value) => { Plugin.IsEnabled = value; };
+            var spoopyToggle = GameplaySettingsUI.CreateToggleOption(GameplaySettingsPanels.ModifiersRight, "Spoopy Bloqs", "Missed a bloq? Try to hit its ghost!", null, 0);
+            spoopyToggle.GetValue = Plugin.IsEnabled;
+            spoopyToggle.OnToggle += (value) => { Plugin.IsEnabled = value; };
         }
 
     }
